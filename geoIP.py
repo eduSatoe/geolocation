@@ -6,15 +6,11 @@
 #Autor:@edusatoe
 #------------------------------------------------------------------------
 import requests
+
 datos = {
 "considerIp": "true"
 }
 
-cabeceras = {
-   "Content-Type" : "application/json",
-   "Accept":"application/json"
-}
- 
 url = "https://www.googleapis.com/geolocation/v1/geolocate?key=YOUR_API_KEY"
 response = requests.post(url, json=datos)
 
