@@ -6,6 +6,9 @@
 #			locationAreaCode: Código de área LAC (Local Area Code) o TAC (Tracking Area Code)
 #			mobileCountryCode: Código del pais MCC, 214 para España
 #			mobileNetworkCode: Código de red móvil MNC, 01 para vodafone
+#
+#Documentación de la API: https://developers.google.com/maps/documentation/geolocation/overview
+#
 #Autor:@edusatoe
 #------------------------------------------------------------------------
 import requests
@@ -26,7 +29,8 @@ datos = {
 url = "https://www.googleapis.com/geolocation/v1/geolocate?key=YOUR_API_KEY"
 response = requests.post(url, json=datos)
 
-print "Latitud:"+str(response.json()['location']['lat'])
-print "Longitud:"+str(response.json()['location']['lng'])
-print "Precision:"+str(response.json()['accuracy'])
-
+print ("Latitud:"+str(response.json()['location']['lat']))
+print ("Longitud:"+str(response.json()['location']['lng']))
+print ("Precision:"+str(response.json()['accuracy']))
+print ("---------------------")
+print ("https://www.google.com/maps/@"+str(response.json()['location']['lat'])+","+str(response.json()['location']['lng'])+",15z")
